@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Settings</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1>Settings</h1>
+      <%= form_for :settings, url: "/settings", html: {method: "patch"} do |f| %>
+      Auto-text message: <%= f.text_field :auto_text_content%>
+      <br>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</body>
+</html>

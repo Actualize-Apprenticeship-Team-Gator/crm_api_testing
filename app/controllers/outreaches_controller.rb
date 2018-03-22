@@ -1,0 +1,2 @@
+class OutreachesController < ApplicationController
+end

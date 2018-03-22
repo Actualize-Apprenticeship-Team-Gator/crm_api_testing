@@ -1,0 +1,58 @@
+<div id="app">
+  <section class="charts">
+    <div class="container-fluid">
+      <header>
+        <h1 class="h3">All Leads</h1>
+      </header>
+      <div class="row">
+        <input type="text" v-model="searchFilter" placeholder="Search">
+      </div>
+
+      <div class="row">
+        <div class="table-responsive leads-table">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="1" v-on:click="columnSort('created_at')">Created</th>
+                <th colspan="1" v-on:click="columnSort('first_name')" >First Name</th>
+                <th colspan="1" v-on:click="columnSort('last_name')">Last Name</th>
+                <th colspan="1" v-on:click="columnSort('email')">Email</th>
+                <th colspan="1" v-on:click="columnSort('phone')">Phone</th>
+                <th colspan="1" v-on:click="columnSort('appointment_date')">Appointment Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template v-for="lead in filteredList">
+                  <tr v-on:click="accordion(lead.id)" v-bind:class="{active : lead.clicked, test : true, no_outreaches : !lead.has_outreaches, newer_event : lead.event_since_last_outreach}" class='hello'>
+                    <td>{{ moment(lead.created_at).format('dddd MMM Do YYYY, h:mm a') }}</td>
+                    <td>{{ lead.first_name }}</td>
+                    <td>{{ lead.last_name }}</td>
+                    <td><a v-bind:href="'/leads/' + lead.id + '/edit'">{{ lead.email }}</a></td>
+                    <td>{{ lead.phone }}</td>
+                    <td>{{ moment(lead.appointment_date).format('dddd MMM Do YYYY, h:mm a') }}</td>
+                  </tr>
+                    <tr v-bind:class="'accordion-' + lead.id" class = 'accordion'>
+                      <td colspan = "6">
+                        <form method='post' action='/autotext'>
+                          <button class="btn btn-info" type='submit'>
+                            <input type="hidden" name="phone" v-model:value=lead.phone>
+                            <input type="hidden" name="first_name" v-model:value="lead.first_name">
+                            <input type="hidden" name="lead_id" v-model:value=lead.id>
+                            Auto-text
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  <tr v-bind:class="'accordion-' + lead.id" class = 'accordion' v-for="event in lead.events"> 
+                    <td colspan = "6">{{event.name}}, {{moment(event.created_at).format('dddd MMM Do YYYY, h:mm a')}} </td>
+                  </tr>
+              </template>
+            </tbody>
+          </table>
+          <p class="center" v-if="!loaded">Loading more</p>
+          <p class="center" v-if="loaded">Displaying all leads</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
