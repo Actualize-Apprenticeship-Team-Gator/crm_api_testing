@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  admin_id: MyString
-  auto_text_content: MyString
-
-two:
-  admin_id: MyString
-  auto_text_content: MyString
