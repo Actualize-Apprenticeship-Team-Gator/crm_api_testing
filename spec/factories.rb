@@ -5,46 +5,78 @@ FactoryBot.define do
   end
 
   factory :lead do
-    # t.string   "first_name"
-    # t.string   "last_name"
-    # t.string   "email"
-    # t.string   "phone"
-    # t.string   "ip"
-    # t.string   "city"
-    # t.string   "state"
-    # t.string   "zip"
-    # t.boolean  "contacted",                 default: false
-    # t.datetime "appointment_date"
-    # t.datetime "created_at",                                null: false
-    # t.datetime "updated_at",                                null: false
-    # t.text     "notes"
-    # t.boolean  "connected",                 default: false
-    # t.boolean  "bad_number",                default: false
-    # t.string   "advisor"
-    # t.string   "location"
-    # t.string   "standard_phone"
-    # t.boolean  "exclude_from_calling",      default: false
-    # t.datetime "process_time"
-    # t.boolean  "hot",                       default: true
-    # t.date     "first_appointment_set"
-    # t.date     "first_appointment_actual"
-    # t.string   "first_appointment_format"
-    # t.date     "second_appointment_set"
-    # t.date     "second_appointment_actual"
-    # t.string   "second_appointment_format"
-    # t.date     "enrolled_date"
-    # t.date     "deposit_date"
-    # t.integer  "sales"
-    # t.integer  "collected"
-    # t.string   "status"
-    # t.string   "next_step"
-    # t.text     "rep_notes"
-    # t.integer  "number_of_dials",           default: 0
-    # t.boolean  "old_lead",                  default: false
-    # t.string   "meeting_type"
-    # t.string   "meeting_format"
-    # t.string   "ip_state"
-    # t.boolean  "online",                    default: false
+    first_name
+    last_name
+    email
+    phone
+    ip
+    city
+    state
+    zip
+    contacted     
+    appointment_date 
+    notes
+    connected     
+    bad_number       
+    advisor
+    location
+    standard_phone
+    exclude_from_calling
+    process_time
+    hot               
+    first_appointment_set
+    first_appointment_actual
+    first_appointment_format
+    second_appointment_set
+    second_appointment_actual
+    second_appointment_format
+    enrolled_date
+    deposit_date
+    sales
+    collected
+    status
+    next_step
+    rep_notes
+    number_of_dials         
+    old_lead             
+    meeting_type
+    meeting_format
+    ip_state
+    online                
   end
+
+  factory :admin do
+    admins #needs to be unique
+    email
+    encrypted_password
+    reset_password_token #needs to be unique
+    reset_password_sent_at
+    remember_created_at
+    sign_in_count
+    current_sign_in_at
+    last_sign_in_at
+    current_sign_in_ip
+    last_sign_in_ip
+    first_name
+    last_name
+    role
+  end
+
+  factory :outreaches do
+    outreaches
+    text
+    lead_id
+    created_at
+    updated_at
+  end
+
+  factory :settings do
+   settings
+   admin_id
+   auto_text_content
+   created_at
+   updated_at
+  end
+
 end
 
