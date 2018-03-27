@@ -1,3 +1,7 @@
 language: ruby
 rvm:
  - 2.4.2
+
+scripts:
+ - bundle exec rake db:create
+ - bundle exec rake db:migrate
