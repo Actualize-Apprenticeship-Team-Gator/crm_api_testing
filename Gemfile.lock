@@ -232,7 +232,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (>= 4.4.0)
   drip-ruby
-  factory_bot_rails
+  factory_bot_rails (~> 4.8.2)
   faker
   figaro
   geocoder (= 1.4.6)

@@ -5,78 +5,62 @@ FactoryBot.define do
   end
 
   factory :lead do
-    first_name
-    last_name
-    email
-    phone
-    ip
-    city
-    state
-    zip
-    contacted     
-    appointment_date 
-    notes
-    connected     
-    bad_number       
-    advisor
-    location
-    standard_phone
-    exclude_from_calling
-    process_time
-    hot               
-    first_appointment_set
-    first_appointment_actual
-    first_appointment_format
-    second_appointment_set
-    second_appointment_actual
-    second_appointment_format
-    enrolled_date
-    deposit_date
-    sales
-    collected
-    status
-    next_step
-    rep_notes
-    number_of_dials         
-    old_lead             
-    meeting_type
-    meeting_format
-    ip_state
-    online                
+    first_name 'Bob'
+    last_name 'Smith'
+    email 'email@email.com'
+    phone '5551234567'
+    ip '1.1.1'
+    city 'Chicago'
+    state 'IL'
+    zip '60046'
+    contacted true    
+    appointment_date {Time.now}
+    notes 'Noted'
+    connected false
+    bad_number false  
+    advisor 'Peter'
+    location 'IL'
+    standard_phone '5551231234'
+    exclude_from_calling false
+    process_time {Time.now}
+    hot true
+    first_appointment_set {Time.now}
+    first_appointment_actual {Time.now}
+    first_appointment_format 'phone'
+    second_appointment_set {Time.now}
+    second_appointment_actual {Time.now}
+    second_appointment_format 'phone'
+    enrolled_date {Time.now}
+    deposit_date {Time.now}
+    sales 1
+    collected 1
+    status 'Leaded'
+    next_step 'email them'
+    rep_notes 'called them'
+    number_of_dials 5      
+    old_lead false
+    meeting_type 'In-person'
+    meeting_format 'Talking'
+    ip_state 'IL'
+    online false            
   end
 
   factory :admin do
-    admins #needs to be unique
-    email
-    encrypted_password
-    reset_password_token #needs to be unique
-    reset_password_sent_at
-    remember_created_at
-    sign_in_count
-    current_sign_in_at
-    last_sign_in_at
-    current_sign_in_ip
-    last_sign_in_ip
-    first_name
-    last_name
-    role
+    first_name 'Bob'
+    last_name "Smith"
+    role 'Worker'
+    # email 'email@email.com'
+    sequence(:email) { |n| "bob#{n}@email.com" }
+    password 'password'
   end
 
-  factory :outreaches do
-    outreaches
-    text
-    lead_id
-    created_at
-    updated_at
+  factory :outreach do
+    text 'Sample'
+    lead
   end
 
-  factory :settings do
-   settings
-   admin_id
-   auto_text_content
-   created_at
-   updated_at
+  factory :setting do
+   admin
+   auto_text_content 'text'
   end
-
 end
-
