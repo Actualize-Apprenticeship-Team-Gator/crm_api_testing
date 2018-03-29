@@ -8,4 +8,3 @@ RSpec.describe Admin, type: :model do
     end
   end   
 end
-

@@ -49,7 +49,6 @@ FactoryBot.define do
     first_name 'Bob'
     last_name "Smith"
     role 'Worker'
-    # email 'email@email.com'
     sequence(:email) { |n| "bob#{n}@email.com" }
     password 'password'
   end
