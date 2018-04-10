@@ -89,4 +89,40 @@ RSpec.describe Lead, type: :model do
       end
     end
   end
+
+  describe "#reset" do 
+    before :each do 
+      @lead = create(:lead, hot: false, contacted: true, connected: true, exclude_from_calling: true, appointment_date: Time.now, advisor: "hi", number_of_dials: 4)
+      @lead.reset
+      # @lead.reload  
+    end 
+
+    it "should return true for hot" do 
+      expect(@lead.hot).to be true
+    end
+
+    it "should return false for contacted" do 
+      expect(@lead.contacted).to be false
+    end
+    
+    it "should return false for connected" do 
+      expect(@lead.connected).to be false
+    end
+    
+    it "should return false for exclude_from_calling" do 
+      expect(@lead.exclude_from_calling).to be false
+    end
+    
+    it "should return nil for appointment_date" do 
+      expect(@lead.appointment_date).to be_nil
+    end
+    
+    it "should return nil for advisor" do 
+      expect(@lead.advisor).to be_nil
+    end
+    
+    it "should return 0 for number_of_dials" do 
+      expect(@lead.number_of_dials).to eq 0
+    end
+  end
 end

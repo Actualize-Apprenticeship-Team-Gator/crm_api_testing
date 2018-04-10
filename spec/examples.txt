@@ -10,3 +10,10 @@ example_id                          | status | run_time        |
 ./spec/models/lead_spec.rb[1:5:2:1] | passed | 0.00197 seconds |
 ./spec/models/lead_spec.rb[1:6:1:1] | passed | 0.01021 seconds |
 ./spec/models/lead_spec.rb[1:6:2:1] | passed | 0.02193 seconds |
+./spec/models/lead_spec.rb[1:7:1]   | passed | 0.05572 seconds |
+./spec/models/lead_spec.rb[1:7:2]   | passed | 0.01241 seconds |
+./spec/models/lead_spec.rb[1:7:3]   | passed | 0.01406 seconds |
+./spec/models/lead_spec.rb[1:7:4]   | passed | 0.01918 seconds |
+./spec/models/lead_spec.rb[1:7:5]   | passed | 0.01201 seconds |
+./spec/models/lead_spec.rb[1:7:6]   | passed | 0.01269 seconds |
+./spec/models/lead_spec.rb[1:7:7]   | passed | 0.01419 seconds |
