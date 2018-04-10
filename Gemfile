@@ -57,6 +57,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'factory_bot_rails', '~> 4.8.2'
   gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
 end
 
 group :development do
