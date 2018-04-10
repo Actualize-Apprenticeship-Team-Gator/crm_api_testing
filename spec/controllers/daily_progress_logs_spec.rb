@@ -4,8 +4,8 @@ RSpec.describe DailyProgressLogsController do
   include Devise::Test::ControllerHelpers
 
   before do
-    admin = create(:admin)
-    sign_in admin
+    @admin = create(:admin)
+    sign_in @admin
   end
 
   describe 'GET index' do
@@ -13,5 +13,30 @@ RSpec.describe DailyProgressLogsController do
       get :index
       expect(assigns(:daily_progress_active)).to eq('active')
     end
+
+    context "when admin is signed in and params[:email] is that admin's email address" do
+      it "it should assign the admin's daily progress logs to @logs" do
+        logs = [
+          create(:daily_progress_log, admin: @admin),
+          create(:daily_progress_log, admin: @admin, date: Date.yesterday)
+        ]
+        get :index, params: {email: @admin.email}
+        expect(assigns(:logs)).to eq(logs)
+      end
+    end
+
+    # context "when admin is signed in and params[:email] is not that admin's email address" do
+    #   it "it should assign the admin's daily progress logs to @logs" do
+    #     @daily_progress_logs = create(:daily_progress_logs, admin: @admin)
+        
+    #   end
+    # end
+
+    # context "when no admin is signed in" do
+    #   it "it should assign the admin's daily progress logs to @logs" do
+    #     @daily_progress_logs = create(:daily_progress_logs, admin: @admin)
+        
+    #   end
+    # end
   end
 end

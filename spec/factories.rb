@@ -62,4 +62,9 @@ FactoryBot.define do
    admin
    auto_text_content 'text'
   end
+
+  factory :daily_progress_log do
+    admin
+    date {Time.now}
+  end
 end
