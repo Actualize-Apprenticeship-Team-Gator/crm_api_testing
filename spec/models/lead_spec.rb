@@ -125,4 +125,27 @@ RSpec.describe Lead, type: :model do
       expect(@lead.number_of_dials).to eq 0
     end
   end
+
+  describe "#self.next" do 
+    context "when a lead has started an application, not on exclude call list, has not been contacted, has valid phone number and not empty, and no enroll date" do 
+      before :each do 
+        @lead = create(:lead, :next_lead)
+        @event = create(:event, name: "Started Application", updated_at: Date.today, lead: 
+          @lead)
+        @event = create(:event, name: "Started Application", updated_at: Date.yesterday, lead: @lead)
+      end 
+      it "should return true" do 
+        expect(Lead.next).to eq @lead
+      end
+    end
+    context "when a lead has not started an application, not on exclude call list, has not been contacted, has valid phone number and not empty, and no enroll date" do 
+      before :each do 
+        @lead = create(:lead, :next_lead)
+        @event = create(:event, name: "Started Footer", updated_at: Date.yesterday, lead:@lead)
+      end 
+      it "should return false" do 
+        expect(Lead.next).to eq @lead
+      end
+    end
+  end
 end

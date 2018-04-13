@@ -4,7 +4,17 @@ FactoryBot.define do
     lead
   end
 
+
   factory :lead do
+    trait :next_lead do 
+      old_lead false
+      exclude_from_calling false
+      contacted false
+      bad_number false
+      enrolled_date nil
+      phone '1234567890'
+    end
+    
     first_name 'Bob'
     last_name 'Smith'
     email 'email@email.com'
