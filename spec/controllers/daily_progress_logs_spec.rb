@@ -25,18 +25,13 @@ RSpec.describe DailyProgressLogsController do
       end
     end
 
-    # context "when admin is signed in and params[:email] is not that admin's email address" do
-    #   it "it should assign the admin's daily progress logs to @logs" do
-    #     @daily_progress_logs = create(:daily_progress_logs, admin: @admin)
-        
-    #   end
-    # end
-
-    # context "when no admin is signed in" do
-    #   it "it should assign the admin's daily progress logs to @logs" do
-    #     @daily_progress_logs = create(:daily_progress_logs, admin: @admin)
-        
-    #   end
-    # end
+    context "when no admin is signed in" do
+      it "it should redirect to the login page" do
+        sign_out @admin
+        @daily_progress_logs = create(:daily_progress_log, admin: @admin)
+        get :index
+        expect(response).to redirect_to(new_admin_session_path)
+      end
+    end
   end
 end
