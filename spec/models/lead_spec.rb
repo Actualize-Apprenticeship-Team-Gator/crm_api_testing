@@ -127,24 +127,24 @@ RSpec.describe Lead, type: :model do
   end
 
   describe "#self.next" do 
-    context "when a lead has started an application, not on exclude call list, has not been contacted, has valid phone number and not empty, and no enroll date" do 
-      before :each do 
-        @lead = create(:lead, :next_lead)
-        @event = create(:event, name: "Started Application", updated_at: Date.today, lead: 
-          @lead)
-        @event = create(:event, name: "Started Application", updated_at: Date.yesterday, lead: @lead)
-      end 
-      it "should return true" do 
-        expect(Lead.next).to eq @lead
+    context "when there are multiple valid leads" do 
+      it "should return the newest valid lead" do 
+        lead = create(:lead, :next_lead)
+        next_lead = create(:lead, :next_lead)
+        create(:event, name: "Started Application", lead: next_lead)
+        create(:event, 
+          name: "Started Application", 
+          updated_at: Date.yesterday, 
+          lead: lead
+        )
+        expect(Lead.next).to eq next_lead
       end
     end
-    context "when a lead has not started an application, not on exclude call list, has not been contacted, has valid phone number and not empty, and no enroll date" do 
-      before :each do 
-        @lead = create(:lead, :next_lead)
-        @event = create(:event, name: "Started Footer", updated_at: Date.yesterday, lead:@lead)
-      end 
-      it "should return false" do 
-        expect(Lead.next).to eq @lead
+
+    context "when there are no valid leads" do 
+      it "should return nil" do 
+        create(:event)
+        expect(Lead.next).to be_nil
       end
     end
   end
