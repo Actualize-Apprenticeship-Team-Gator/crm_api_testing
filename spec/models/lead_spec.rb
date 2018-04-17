@@ -1,4 +1,5 @@
 require 'rails_helper'
+# require_relative "../fake_sms"
 
 RSpec.describe Lead, type: :model do
   before :each do 
@@ -146,6 +147,16 @@ RSpec.describe Lead, type: :model do
         create(:event)
         expect(Lead.next).to be_nil
       end
+    end
+  end
+
+  describe "#text" do 
+    it "should pass the correct arguements to messages.create" do 
+      allow_any_instance_of(Twilio::REST::Messages).to receive(:create).with({
+        from: ENV['TWILIO_PHONE_NUMBER'], 
+        to: @lead.phone, 
+        body: "Hi #{@lead.first_name}! This is Rena from Actualize. Do you have a minute to chat?"})
+      @lead.text
     end
   end
 end

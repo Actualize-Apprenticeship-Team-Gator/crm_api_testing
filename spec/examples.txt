@@ -18,4 +18,6 @@ example_id                          | status | run_time        |
 ./spec/models/lead_spec.rb[1:7:6]   | passed | 0.01358 seconds |
 ./spec/models/lead_spec.rb[1:7:7]   | passed | 0.01686 seconds |
 ./spec/models/lead_spec.rb[1:8:1:1] | passed | 0.07696 seconds |
-./spec/models/lead_spec.rb[1:8:2:1] | failed | 0.02415 seconds |
+./spec/models/lead_spec.rb[1:8:2:1] | passed | 0.08079 seconds |
+./spec/models/lead_spec.rb[1:9:1]   | passed | 0.04666 seconds |
+./spec/models/lead_spec.rb[1:9:2]   | passed | 0.01273 seconds |
