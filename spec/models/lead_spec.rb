@@ -23,8 +23,9 @@ RSpec.describe Lead, type: :model do
   describe "#processed_within_minutes" do 
     context "when the lead has been processed" do 
       it "should return processed in minutes" do 
-        @lead.process_time
-        expect(@lead.processed_within_minutes).to eq "0 minutes"
+        @lead.process_time = Time.new(2018, 04, 16, 12, 0, 0, "+09:00")
+        @lead.created_at = Time.new(2018, 04, 16, 11, 30, 0, "+09:00")
+        expect(@lead.processed_within_minutes).to eq "30 minutes"
       end
     end
 
