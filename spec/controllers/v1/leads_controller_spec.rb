@@ -13,7 +13,7 @@ RSpec.describe Api::V1::LeadsController do
   describe 'GET index' do
     it "should return all leads" do
       get :index
-      expect(assigns(:leads)).to eq([@lead])
+      expect(assigns(:leads)).to eq([@lead, @lead2])
     end
 
     it "should sort lead events in descending order" do
@@ -31,8 +31,25 @@ RSpec.describe Api::V1::LeadsController do
   end
 
   describe 'POST create' do
-    it "should create a lead" do
-      
+    context "when lead already exists" do
+      it "" do
+        #create a lead and save with attributes you want, send params to find lead
+        # Make a trait for below
+        # lead.first_name = params[:first_name]
+        # lead.last_name = params[:last_name]
+        # lead.phone = params[:phone]
+        # lead.ip = params[:ip]
+        # lead.city = params[:city]
+        # lead.state = params[:state]
+        # lead.zip = params[:zip]
+        # lead.created_at = params[:created_at]
+        # lead.updated_at = params[:updated_at]
+      end
+    end
+
+    context "when lead does not exist" do
+      #If one of params does not match it creates a lead and attaches an event?
+
     end
   end
 end
