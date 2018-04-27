@@ -32,24 +32,25 @@ RSpec.describe Api::V1::LeadsController do
 
   describe 'POST create' do
     context "when lead already exists" do
-      it "" do
-        #create a lead and save with attributes you want, send params to find lead
-        # Make a trait for below
-        # lead.first_name = params[:first_name]
-        # lead.last_name = params[:last_name]
-        # lead.phone = params[:phone]
-        # lead.ip = params[:ip]
-        # lead.city = params[:city]
-        # lead.state = params[:state]
-        # lead.zip = params[:zip]
-        # lead.created_at = params[:created_at]
-        # lead.updated_at = params[:updated_at]
+      it "should find a lead based on parameters sent" do
+        post :create, params: {email: @lead.email}
+        expect(assigns(:lead)).to eq(@lead)
+      end
+      it "creates an event for the existing lead" do
+        expect do
+          post :create, params: {email: @lead.email, name: 'footer'}
+        end.to change {@lead.events.count}.by 1
+      end
+      it "Does not create an event for any other lead" do
+        expect do
+          post :create, params: {email: @lead.email, name: 'footer'}
+        end.to change {@lead2.events.count}.by 0
       end
     end
 
-    context "when lead does not exist" do
+    # context "when lead does not exist" do
       #If one of params does not match it creates a lead and attaches an event?
 
-    end
+    # end
   end
 end
