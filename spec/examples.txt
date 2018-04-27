@@ -5,7 +5,8 @@ example_id                                              | status | run_time     
 ./spec/controllers/v1/leads_controller_spec.rb[1:2:1]   | passed | 0.03322 seconds |
 ./spec/controllers/v1/leads_controller_spec.rb[1:3:1:1] | passed | 0.19965 seconds |
 ./spec/controllers/v1/leads_controller_spec.rb[1:3:1:2] | failed | 0.10576 seconds |
-./spec/controllers/v1/leads_controller_spec.rb[1:3:1:3] | passed | 0.17243 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:1:3] | passed | 0.40742 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:1:4] | passed | 0.16208 seconds |
 ./spec/models/lead_spec.rb[1:1:1]                       | passed | 0.04524 seconds |
 ./spec/models/lead_spec.rb[1:2:1:1]                     | passed | 0.05441 seconds |
 ./spec/models/lead_spec.rb[1:3:1:1]                     | passed | 0.05491 seconds |

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::LeadsController do
+  render_views
 
   before do
     @lead = create(:lead)
@@ -45,6 +46,10 @@ RSpec.describe Api::V1::LeadsController do
         expect do
           post :create, params: {email: @lead.email, name: 'footer'}
         end.to change {@lead2.events.count}.by 0
+      end
+      it "renders a json after a lead event is created" do
+        post :create, params: {email: @lead.email}
+        expect(JSON.parse(response.body)["email"]).to eq("email@email.com")
       end
     end
 
