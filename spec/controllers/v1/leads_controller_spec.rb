@@ -53,9 +53,20 @@ RSpec.describe Api::V1::LeadsController do
       end
     end
 
-    # context "when lead does not exist" do
-      #If one of params does not match it creates a lead and attaches an event?
-
-    # end
+    context "when lead does not exist" do
+      it 'creates a lead' do
+        expect do
+          post :create, params: {email: "test@email.com", first_name: "John"}
+        end.to change {Lead.count}.by 1
+      end
+      it 'saves the active event to the created lead' do
+        post :create, params: {
+          email: "test@email.com", 
+          first_name: "John", 
+          name: "started application"
+        }
+        expect(assigns(:lead).events.count).to eq 1
+      end
+    end
   end
 end

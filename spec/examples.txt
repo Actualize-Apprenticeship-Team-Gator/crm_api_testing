@@ -1,12 +1,14 @@
 example_id                                              | status | run_time        |
 ------------------------------------------------------- | ------ | --------------- |
-./spec/controllers/v1/leads_controller_spec.rb[1:1:1]   | passed | 0.16975 seconds |
-./spec/controllers/v1/leads_controller_spec.rb[1:1:2]   | passed | 0.03543 seconds |
-./spec/controllers/v1/leads_controller_spec.rb[1:2:1]   | passed | 0.03322 seconds |
-./spec/controllers/v1/leads_controller_spec.rb[1:3:1:1] | passed | 0.19965 seconds |
-./spec/controllers/v1/leads_controller_spec.rb[1:3:1:2] | failed | 0.10576 seconds |
-./spec/controllers/v1/leads_controller_spec.rb[1:3:1:3] | passed | 0.40742 seconds |
-./spec/controllers/v1/leads_controller_spec.rb[1:3:1:4] | passed | 0.16208 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:1:1]   | passed | 0.1782 seconds  |
+./spec/controllers/v1/leads_controller_spec.rb[1:1:2]   | passed | 0.05326 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:2:1]   | passed | 0.03639 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:1:1] | passed | 0.04265 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:1:2] | passed | 0.03949 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:1:3] | passed | 0.03715 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:1:4] | passed | 0.03458 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:2:1] | passed | 0.04482 seconds |
+./spec/controllers/v1/leads_controller_spec.rb[1:3:2:2] | passed | 0.03586 seconds |
 ./spec/models/lead_spec.rb[1:1:1]                       | passed | 0.04524 seconds |
 ./spec/models/lead_spec.rb[1:2:1:1]                     | passed | 0.05441 seconds |
 ./spec/models/lead_spec.rb[1:3:1:1]                     | passed | 0.05491 seconds |
