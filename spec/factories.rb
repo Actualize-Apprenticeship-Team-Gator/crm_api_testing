@@ -6,6 +6,7 @@ FactoryBot.define do
 
 
   factory :lead do
+
     trait :next_lead do 
       old_lead false
       exclude_from_calling false
@@ -13,6 +14,18 @@ FactoryBot.define do
       bad_number false
       enrolled_date nil
       phone '1234567890'
+    end
+
+    trait :create_lead do
+      first_name 'John'
+      last_name 'Doe'
+      phone '1234567890'
+      ip '1.1.1'
+      city 'Chicago'
+      state 'IL'
+      zip '60000'
+      created_at Time.new(2018, 4, 20)
+      updated_at Time.new(2018, 4, 26)
     end
     
     first_name 'Bob'
